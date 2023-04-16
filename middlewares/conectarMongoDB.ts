@@ -1,9 +1,9 @@
 import type {NextApiRequest, NextApiResponse, NextApiHandler} from 'next';
 import mongoose from 'mongoose';
-import type {respostaPadrao} from '../types/respostaPadrao';
+import type {RespostaPadraoMsg} from '../types/RespostaPadraoMsg';
 
 export const conectarMongoDB = (handler : NextApiHandler) =>
-    async (req : NextApiRequest, res : NextApiResponse<respostaPadrao>) => {
+    async (req : NextApiRequest, res : NextApiResponse<RespostaPadraoMsg>) => {
 
         if(mongoose.connections[0].readyState){
             return handler(req, res);
