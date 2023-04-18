@@ -36,7 +36,7 @@ const handler = nc()
             nome: usuario.nome,
             email: usuario.email,
             senha: md5(usuario.senha),
-            avatar: image?.file?.url
+            avatar: image?.media?.url
         }
             
         await UsuarioModel.create(usuarioASerSalvo);
