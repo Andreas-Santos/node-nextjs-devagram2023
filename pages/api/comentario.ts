@@ -4,6 +4,7 @@ import { UsuarioModel } from '@/models/UsuarioModel';
 import { PublicacaoModel } from '@/models/PublicacaoModel';
 import { validarTokenJWT } from '@/middlewares/validarTokenJWT';
 import { conectarMongoDB } from '@/middlewares/conectarMongoDB';
+import { politicaCORS } from '@/middlewares/politicaCORS';
 
 const endpointComentario = async (req : NextApiRequest, res : NextApiResponse<RespostaPadraoMsg>) => {
     try{
@@ -42,4 +43,4 @@ const endpointComentario = async (req : NextApiRequest, res : NextApiResponse<Re
     }
 }
 
-export default validarTokenJWT(conectarMongoDB(endpointComentario));
+export default politicaCORS(validarTokenJWT(conectarMongoDB(endpointComentario)));
